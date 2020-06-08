@@ -9,22 +9,6 @@ a {
     color: #eee;
 }
 
-header {
-    width: 100%;
-    height: 100vh;
-    background: linear-gradient(
-            to bottom,
-            rgba(0, 0, 0, 0.9),
-            rgba(0, 0, 0, 0.1)
-        ),
-        /* url('/images/barback.jpg') center no-repeat; */
-        url('/images/good.jpg') center no-repeat;
-    /* background-image: url('/images/good.jpg'); */
-    background-size: cover;
-    position: relative;
-    overflow: hidden;
-}
-
 .container {
     max-width: 120rem;
     width: 90%;
