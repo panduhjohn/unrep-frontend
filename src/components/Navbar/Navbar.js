@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import './Navbar.css';
 
 export default class Navbar extends Component {
-
     componentDidMount() {
         const open = document.getElementById('hamburger');
         let changeIcon = true;
@@ -32,44 +31,48 @@ export default class Navbar extends Component {
 
     render() {
         return (
-                <div>
-                    <header>
-                        <div className='menu-toggle' id='hamburger'>
-                            <i
-                                id='skull'
-                                className='fas fa-skull-crossbones'
-                            ></i>
-                        </div>
-                        <div className='overlay'></div>
-                        <div className='container'>
-                            <nav>
-                                <h1 className='brand'>
-                                    
-                                    <Link to='/'>
-                                        Witty <span>Name</span> Here
+            <div>
+                <header>
+                    <div className='menu-toggle' id='hamburger'>
+                        <i id='skull' className='fas fa-skull-crossbones'></i>
+                    </div>
+                    <div className='overlay'></div>
+                    <div className='container'>
+                        <nav>
+                            <h1 className='brand'>
+                                <Link id='nav-links' to='/'>
+                                    White<span>Guurl</span>Wasted
+                                </Link>
+                                {/* Ro<span>am</span>in */}
+                            </h1>
+                            <ul>
+                                <li>
+                                    {/* <a href='/drinks'>Food & Drinks</a> */}
+                                    <Link to='/drinks' id='nav-links'>
+                                        Food & Drinks
                                     </Link>
-                                    {/* Ro<span>am</span>in */}
-                                   
-                                </h1>
-                                <ul>
-                                    <li>
-                                        {/* <a href='/drinks'>Food & Drinks</a> */}
-                                        <Link to='/drinks'>Food & Drinks</Link>
-                                    </li>
-                                    <li>
-                                        <Link to='/contact'>Contact</Link>
-                                    </li>
-                                    <li>
-                                        <Link to='/about'>About</Link>
-                                    </li>
-                                    <li>
-                                        <Link to='/stuff'>Stuff</Link>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
-                    </header>
-                </div>
+                                </li>
+
+                                <li>
+                                    <Link to='/about' id='nav-links'>
+                                        About
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link to='/contact' id='nav-links'>
+                                        Register
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link to='/stuff' id='nav-links'>
+                                        Login
+                                    </Link>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </header>
+            </div>
         );
     }
 }
