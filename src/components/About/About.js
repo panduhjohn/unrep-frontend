@@ -1,11 +1,51 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
+import Card from "react-bootstrap/Card";
+import CardDeck from "react-bootstrap/CardDeck";
+import Button from "react-bootstrap/Button";
+import axios from "axios";
+import "./About.css";
 
-export default class About extends Component {
-    render() {
-        return (
-            <div>
-                <h1>This is the ABOUT page</h1>
-            </div>
-        )
-    }
+export default class Restaurants extends Component {
+  constructor() {
+    super();
+    this.state = {
+      info: [],
+    };
+  }
+
+  componentDidMount() {
+    axios.get("http://localhost:3001/restaurants").then((results) => {
+      console.log(results);
+      this.setState({ info: results.data }, () => {
+        console.log(this.state.info);
+      });
+    });
+  }
+  render() {
+    return (
+      <div className="drinkContainer">
+        <h1>
+          Co<span>ckta</span>ils
+        </h1>
+        <div className="cardContainer">
+          <CardDeck>
+            {this.state.info.map(({ name, thumb }) => {
+              return (
+                <Card>
+                  <Card.Img id="drinkImg" variant="top" src={thumb} />
+                  <Card.Body>
+                    <Card.Title id="drinkTitle">{name}</Card.Title>
+                    <Card.Text>Random words about random stuff.</Card.Text>
+                  </Card.Body>
+                  <Card.Footer>
+                    <Button variant="info">Order Drink</Button>
+                  </Card.Footer>
+                </Card>
+              );
+            })}
+          </CardDeck>
+        </div>
+      </div>
+    );
+  }
 }
