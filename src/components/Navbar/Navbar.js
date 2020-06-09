@@ -41,8 +41,13 @@ export default class Navbar extends Component {
                         <nav>
                             <h1 className='brand'>
                                 <Link id='nav-links' to='/'>
-                                    <span role='img' alt='drunk'>🥴</span> Wa<span>St</span>Ed
-                                    <span role='img' alt='puke'>🤮</span>
+                                    <span role='img' aria-label='drunk'>
+                                        🥴
+                                    </span>
+                                    Wa<span>St</span>Ed
+                                    <span role='img' aria-label='puke'>
+                                        🤮
+                                    </span>
                                 </Link>
                             </h1>
                             <ul>
