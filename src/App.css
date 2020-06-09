@@ -13,11 +13,10 @@ body {
             rgba(0, 0, 0, 0.1)
         ),
         /* url('/images/barback.jpg') center no-repeat; */
-        url('/images/good.jpg') center no-repeat;
-    /* background-image: url('/images/good.jpg'); */ 
+            url('/images/good.jpg') center no-repeat;
+    /* background-image: url('/images/good.jpg'); */
     background-size: cover;
     position: relative;
-    overflow: hidden;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
-
-

@@ -41,30 +41,45 @@ export default class Navbar extends Component {
                         <nav>
                             <h1 className='brand'>
                                 <Link id='nav-links' to='/'>
-                                    White<span>Guurl</span>Wasted
+                                    <span role='img' alt='drunk'>🥴</span> Wa<span>St</span>Ed
+                                    <span role='img' alt='puke'>🤮</span>
                                 </Link>
-                                {/* Ro<span>am</span>in */}
                             </h1>
                             <ul>
                                 <li>
-                                    {/* <a href='/drinks'>Food & Drinks</a> */}
-                                    <Link to='/drinks' id='nav-links'>
-                                        Food & Drinks
+                                    <Link
+                                        to='/drinks'
+                                        id='nav-links'
+                                        activeClassName='selected'
+                                    >
+                                        Drinks
                                     </Link>
                                 </li>
 
                                 <li>
-                                    <Link to='/about' id='nav-links'>
+                                    <Link
+                                        to='/about'
+                                        id='nav-links'
+                                        activeClassName='selected'
+                                    >
                                         About
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to='/contact' id='nav-links'>
+                                    <Link
+                                        to='/contact'
+                                        id='nav-links'
+                                        activeClassName='selected'
+                                    >
                                         Register
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to='/stuff' id='nav-links'>
+                                    <Link
+                                        to='/stuff'
+                                        id='nav-links'
+                                        activeClassName='selected'
+                                    >
                                         Login
                                     </Link>
                                 </li>
