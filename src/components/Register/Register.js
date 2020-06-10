@@ -6,12 +6,15 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import InputGroup from '../shared/InputGroup';
 import ButtonGroup from '../shared/ButtonGroup';
-
+import { login } from '../Helpers/AuthHelpers';
+import { Context } from '../Context/Context';
 import { createUser, isAuthenticated } from '../Helpers/AuthHelpers';
 
 import './Register.css';
 
 export default class Register extends Component {
+    static contextType = Context;
+
     state = {
         canSubmit: true,
         formSetting: {
@@ -155,26 +158,37 @@ export default class Register extends Component {
                 ...this.state.formSetting,
             };
 
+            let success = await login({
+                email: email.value,
+                password: password.value,
+            });
+
+            
             inputForm['email'].value = '';
             inputForm['password'].value = '';
             inputForm['username'].value = '';
-
-            toast.success('🐒 Login Now', {
-                position: 'top-center',
-                autoClose: 2000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
+            
+            this.context.dispatch({
+                type: 'SUCCESS_SIGNED_IN',
+                payload: success.user,
             });
+
+            // toast.success('🐒 Login Now', {
+            //     position: 'top-center',
+            //     autoClose: 2000,
+            //     hideProgressBar: false,
+            //     closeOnClick: true,
+            //     pauseOnHover: true,
+            //     draggable: true,
+            //     progress: undefined,
+            // });
 
             this.setState({
                 ...this.state,
                 formSetting: inputForm,
             });
 
-            
+            this.props.history.push('/');
         } catch (e) {
             console.log(e);
             toast.error(e.message, {
@@ -369,7 +383,6 @@ export default class Register extends Component {
                         title='Register'
                         disabled={canSubmit}
                     />
-                    
                 </form>
             </div>
         );
