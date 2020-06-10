@@ -29,13 +29,14 @@ export default class Restaurants extends Component {
         </h1>
         <div className="cardContainer">
           <CardDeck>
-            {this.state.info.map(({ name, thumb }) => {
+            {this.state.info.map(({ name, thumb, location, cuisines }) => {
               return (
                 <Card>
                   <Card.Img id="drinkImg" variant="top" src={thumb} />
                   <Card.Body>
                     <Card.Title id="drinkTitle">{name}</Card.Title>
-                    <Card.Text>Random words about random stuff.</Card.Text>
+                    <Card.Text>{location.address}</Card.Text>
+                    <Card.Text>{cuisines}</Card.Text>
                   </Card.Body>
                   <Card.Footer>
                     <Button variant="info">Order Drink</Button>
