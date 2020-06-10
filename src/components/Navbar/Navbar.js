@@ -1,10 +1,22 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Consumer } from '../Context/Context';
+import { NavLink } from 'react-router-dom';
+import { isAuthenticated, setUserAuth } from '../Helpers/AuthHelpers';
+
+import AuthNavLinks from './AuthNavLinks';
+import UnAuthNavLinks from './UnAuthNavLinks';
 
 import './Navbar.css';
 
 export default class Navbar extends Component {
     componentDidMount() {
+        let jwtToken = isAuthenticated();
+
+        if (jwtToken) {
+            //use this function to set the User
+            setUserAuth(jwtToken, this.props.dispatch);
+        }
+
         const open = document.getElementById('hamburger');
         let changeIcon = true;
 
@@ -31,68 +43,45 @@ export default class Navbar extends Component {
 
     render() {
         return (
-            <div>
-                <header>
-                    <div className='menu-toggle' id='hamburger'>
-                        <i id='skull' className='fas fa-skull-crossbones'></i>
-                    </div>
-                    <div className='overlay'></div>
-                    <div className='container'>
-                        <nav>
-                            <h1 className='brand'>
-                                <Link id='nav-links' to='/'>
-                                    <span role='img' aria-label='drunk'>
-                                        🥴
-                                    </span>
-                                    Wa<span>St</span>Ed
-                                    <span role='img' aria-label='puke'>
-                                        🤮
-                                    </span>
-                                </Link>
-                            </h1>
-                            <ul>
-                                <li>
-                                    <Link
-                                        to='/drinks'
-                                        id='nav-links'
-                                        activeClassName='selected'
-                                    >
-                                        Drinks
-                                    </Link>
-                                </li>
-
-                                <li>
-                                    <Link
-                                        to='/about'
-                                        id='nav-links'
-                                        activeClassName='selected'
-                                    >
-                                        About
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link
-                                        to='/contact'
-                                        id='nav-links'
-                                        activeClassName='selected'
-                                    >
-                                        Register
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link
-                                        to='/stuff'
-                                        id='nav-links'
-                                        activeClassName='selected'
-                                    >
-                                        Login
-                                    </Link>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                </header>
-            </div>
+            <Consumer>
+                {(stateOfContext) => {
+                    const {
+                        isAuth: { user, auth },
+                    } = stateOfContext;
+                    return (
+                        <header>
+                            <div className='menu-toggle' id='hamburger'>
+                                <i
+                                    id='skull'
+                                    className='fas fa-skull-crossbones'
+                                ></i>
+                            </div>
+                            <div className='overlay'></div>
+                            <div className='container'>
+                                <nav>
+                                    <h1 className='brand'>
+                                        <NavLink id='nav-links' to='/'>
+                                            <span role='img' aria-label='drunk'>
+                                                🥴
+                                            </span>
+                                            Sc<span>hwif</span>ty
+                                            <span role='img' aria-label='puke'>
+                                                🤮
+                                            </span>
+                                        </NavLink>
+                                    </h1>
+                                    {user && auth ? (
+                                        <AuthNavLinks {...user} {...auth} />
+                                    ) : (
+                                        <UnAuthNavLinks />
+                                    )}
+                                </nav>
+                            </div>
+                           
+                        </header>
+                    );
+                }}
+            </Consumer>
         );
     }
 }
