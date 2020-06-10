@@ -7,6 +7,26 @@ export default function UnAuthNavLinks() {
         <ul className='nav__ul'>
             <li>
                 <NavLink
+                    to='/about'
+                    id='nav-links'
+                    activeStyle={{ fontWeight: 'bold' }}
+                    activeClassName='selected'
+                >
+                    About
+                </NavLink>
+            </li>
+            <li>
+                <NavLink
+                    to='/contact'
+                    id='nav-links'
+                    activeStyle={{ fontWeight: 'bold' }}
+                    activeClassName='selected'
+                >
+                    Contact
+                </NavLink>
+            </li>
+            <li>
+                <NavLink
                     to='/register'
                     id='nav-links'
                     activeStyle={{ fontWeight: 'bold' }}

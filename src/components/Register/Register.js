@@ -366,9 +366,10 @@ export default class Register extends Component {
                     <ButtonGroup
                         // key={key}
                         buttonStyle='form-button'
-                        title='Sign up'
+                        title='Register'
                         disabled={canSubmit}
                     />
+                    
                 </form>
             </div>
         );

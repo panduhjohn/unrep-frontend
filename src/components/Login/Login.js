@@ -186,7 +186,7 @@ export default class Login extends Component {
                                 draggable
                                 pauseOnHover
                             />
-                            <h1>Sign in</h1>
+                            <h1>Login</h1>
                             <form
                                 className='signup-form'
                                 onSubmit={(e) => this.onSubmit(e, dispatch)}
@@ -214,7 +214,7 @@ export default class Login extends Component {
                                 })}
                                 <ButtonGroup
                                     buttonStyle='form-button'
-                                    title='sign in'
+                                    title='Login'
                                     disabled={canSubmit}
                                 />
                             </form>
