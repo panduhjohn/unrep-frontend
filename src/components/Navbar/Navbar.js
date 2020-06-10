@@ -67,7 +67,11 @@ export default class Navbar extends Component {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/contact" id="nav-links" activeClassName="selected">
+                  <Link
+                    to="/register"
+                    id="nav-links"
+                    activeClassName="selected"
+                  >
                     Register
                   </Link>
                 </li>

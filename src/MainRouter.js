@@ -6,6 +6,7 @@ import Drinks from "./components/Drinks/Drinks";
 import About from "./components/About/About";
 import Contact from "./components/Contact/Contact";
 import Home from "./components/Home/Home";
+import Register from "./components/Register/Register";
 
 export default class MainRouter extends Component {
   render() {
@@ -18,6 +19,7 @@ export default class MainRouter extends Component {
           <Route exact path="/drinks" component={Drinks} />
           <Route exact path="/restaurants" component={About} />
           <Route exact path="/contact" component={Contact} />
+          <Route exact path="/register" component={Register} />
           <Route
             render={() => {
               return <h1>Not Found</h1>;
