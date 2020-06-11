@@ -163,11 +163,10 @@ export default class Register extends Component {
                 password: password.value,
             });
 
-            
             inputForm['email'].value = '';
             inputForm['password'].value = '';
             inputForm['username'].value = '';
-            
+
             this.context.dispatch({
                 type: 'SUCCESS_SIGNED_IN',
                 payload: success.user,
