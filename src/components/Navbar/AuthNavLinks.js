@@ -54,12 +54,12 @@ class AuthNavLinks extends Component {
                 </li>
                 <li>
                     <NavLink
-                        to='/user-profile'
+                        to='/cart'
                         id='nav-links'
                         activeStyle={{ fontWeight: 'bold' }}
                         activeClassName='selected'
                     >
-                        <span id='userProfile'>{this.props.email}</span>
+                        <span id='userProfile'>Cart</span>
                     </NavLink>
                 </li>
             </ul>

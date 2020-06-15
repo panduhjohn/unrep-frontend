@@ -186,7 +186,6 @@ export default class Login extends Component {
                                 draggable
                                 pauseOnHover
                             />
-                            <h1>Login</h1>
                             <form
                                 className='signup-form'
                                 onSubmit={(e) => this.onSubmit(e, dispatch)}

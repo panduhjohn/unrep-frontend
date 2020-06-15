@@ -9,7 +9,7 @@ const Beers = React.lazy(() => import('./components/Beers/Beers'));
 const About = React.lazy(() => import('./components/About/About'));
 const Register = React.lazy(() => import('./components/Register/Register'));
 const Login = React.lazy(() => import('./components/Login/Login'));
-const Contact = React.lazy(() => import('./components/Contact/Contact'));
+const Cart = React.lazy(() => import('./components/Cart/Cart'));
 
 export default class MainRouter extends Component {
     render() {
@@ -33,7 +33,7 @@ export default class MainRouter extends Component {
                                     component={Beers}
                                 />
                                 <Route exact path='/about' component={About} />
-                                <Route exact path='/contact' component={Contact} />
+                                
                                 <Route
                                     exact
                                     path='/register'
@@ -43,6 +43,11 @@ export default class MainRouter extends Component {
                                     exact
                                     path='/login'
                                     component={Login}
+                                />
+                                <Route
+                                    exact
+                                    path='/cart'
+                                    component={Cart}
                                 />
                                 <Route
                                     render={() => {

@@ -356,7 +356,7 @@ export default class Register extends Component {
                     draggable
                     pauseOnHover
                 />
-                <h1>Register</h1>
+               
                 <form onSubmit={this.onSubmit}>
                     {inputArray.map((element) => {
                         const {

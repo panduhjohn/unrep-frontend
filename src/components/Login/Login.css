@@ -1,3 +1,14 @@
+h1 {
+    font-family: 'Krona One', sans-serif;
+    color: #eee;
+    display: flex;
+    align-self: center;
+    padding-bottom: 20px;
+}
+h1 span {
+    color: #15ff00;
+}
+
 .signup-container {
     text-align: center;
 }
@@ -19,7 +30,7 @@
     border-color: green;
 }
 .form-style:focus {
-    border-color: red;
+    border-color: #51f200;
 }
 
 .form-button-valid {

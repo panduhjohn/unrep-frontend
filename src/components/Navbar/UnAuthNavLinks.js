@@ -15,16 +15,7 @@ export default function UnAuthNavLinks() {
                     About
                 </NavLink>
             </li>
-            <li>
-                <NavLink
-                    to='/contact'
-                    id='nav-links'
-                    activeStyle={{ fontWeight: 'bold' }}
-                    activeClassName='selected'
-                >
-                    Contact
-                </NavLink>
-            </li>
+           
             <li>
                 <NavLink
                     to='/register'

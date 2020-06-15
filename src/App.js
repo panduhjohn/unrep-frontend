@@ -8,6 +8,15 @@ import Loading from './components/Loading/Loading';
 import './App.css';
 
 export default class App extends Component {
+
+    componentDidMount() {
+        let intitialLocalStorage = localStorage.getItem('cart')
+        let parsedLocalStorage = JSON.parse(intitialLocalStorage)
+        if (!parsedLocalStorage) {
+            localStorage.setItem('cart', JSON.stringify([]))
+        }
+    }
+
     render() {
         return (
             <Provider>

@@ -20,6 +20,13 @@ const reducer = (state, action) => {
                     auth: false,
                 },
             };
+        
+        case 'ADD_TO_CART':
+            return {
+                ...state,
+
+                cart: [...state.cart, action.payload],
+            };
 
         default:
             return state;
@@ -32,10 +39,23 @@ export class Provider extends Component {
             user: null,
             auth: false,
         },
+        cart: [],
+
         dispatch: (action) => {
             this.setState((state) => reducer(state, action));
         },
     };
+
+    componentDidMount() {
+        let getLocalStorage = localStorage.getItem('cart')
+        let parsedLocalStorage = JSON.parse(getLocalStorage)
+        console.log(parsedLocalStorage)
+
+        this.setState({
+            cart: parsedLocalStorage
+        })
+    }
+
 
     render() {
         return (
